@@ -17,23 +17,14 @@ Constraints:
 */
 
 function addBinary(a, b) {
-  let i = a.length - 1;
-  let j = b.length - 1;
-  let carry = 0;
-  let result = "";
+  const aBinary = `0b${a}`;
+  const bBinary = `0b${b}`;
 
-  while (i >= 0 || j >= 0 || carry > 0) {
-    const sum = (i >= 0 ? +a[i] : 0) + (j >= 0 ? +b[j] : 0) + carry;
-    console.log(sum);
-    result = (sum % 2) + result;
-    console.log(result);
-    carry = sum > 1 ? 1 : 0;
+  const sum = BigInt(aBinary) + BigInt(bBinary);
 
-    i--;
-    j--;
-  }
+  console.log(BigInt(aBinary), BigInt(bBinary), sum.toString(2));
 
-  return result;
+  return sum.toString(2);
 }
 
 const a = "1010";
