@@ -22,24 +22,27 @@ Constraints:
 */
 
 function singleNumber(nums) {
-  if (nums.length === 1) {
-    return nums[0];
-  }
+  // const hash = {};
 
-  // Create a hash table
-  const hash = {};
+  // for (const num of nums) {
+  //   hash[num] = (hash[num] || 0) + 1;
+  // }
 
-  for (const num of nums) {
-    hash[num] = hash[num] + 1 || 1;
-  }
+  // for (const key in hash) {
+  //   if (hash[key] === 1) {
+  //     return Number(key);
+  //   }
+  // }
 
-  for (const key in hash) {
-    if (hash[key] === 1) {
-      return key;
-    }
+  // Leetcode best solution
+
+  let uniqNum = 0;
+  for (let idx = 0; idx < nums.length; idx++) {
+    uniqNum = uniqNum ^ nums[idx];
   }
+  return uniqNum;
 }
 
-const nums = [2, 2, 1, 1, 4];
+const nums = [2, 2, 3, 4, 7, 3, 1, 1, 4];
 
 console.log(singleNumber(nums));
