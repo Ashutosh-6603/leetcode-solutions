@@ -23,44 +23,27 @@ Constraints:
 */
 
 function lengthOfLongestSubstring(s) {
-  //   let longestStr = 0;
-  //   let set = new Set();
+  let longestStr = 0;
+  let set = new Set();
 
-  //   let left = 0;
-  //   let right = 0;
+  let left = 0;
+  let right = 0;
 
-  //   while (right < s.length) {
-  //     let letter = s[right];
+  while (right < s.length) {
+    let letter = s[right];
 
-  //     if (!set.has(letter)) {
-  //       set.add(letter);
-  //       longestStr = Math.max(longestStr, set.size);
-  //       right++;
-  //     } else {
-  //       set.delete(s[left]);
-  //       left++;
-  //     }
-  //   }
-
-  //   return longestStr;
-
-  let arr = new Array(128).fill(false);
-  let l = 0,
-    r = 0,
-    maxLen = 0;
-
-  while (r < s.length) {
-    if (!arr[s.charCodeAt(r)]) {
-      arr[s.charCodeAt(r)] = true;
-      maxLen = Math.max(maxLen, r - l + 1);
-      r++;
+    if (!set.has(letter)) {
+      set.add(letter);
+      longestStr = Math.max(longestStr, set.size);
+      right++;
     } else {
-      arr[s.charCodeAt(l)] = false;
-      l++;
+      set.delete(s[left]);
+      left++;
     }
   }
-  return maxLen;
+
+  return longestStr;
 }
 
-const str = "pwwkew";
-console.log(lengthOfLongestSubstring(str));
+const str = "abcabcbb";
+console.log(lengthOfLongestSubstring(str), "result");

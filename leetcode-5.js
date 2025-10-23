@@ -17,35 +17,40 @@ Constraints:
 */
 
 function longestPalindrome(s) {
-  const n = s.length;
-  if (n === 0) return "";
+  if (isPalindrome(s)) return s;
+  let set = new Set();
+  let maxLength = 0;
+  let ans = "";
 
-  let start = 0,
-    maxLength = 1;
-  const dp = Array.from({ length: n }, () => Array(n).fill(false));
-
-  for (let i = 0; i < n; i++) {
-    dp[i][i] = true;
-  }
-
-  for (let length = 2; length <= n; length++) {
-    for (let i = 0; i <= n - length; i++) {
-      const j = i + length - 1;
-      if (s[i] === s[j]) {
-        if (length === 2) {
-          dp[i][j] = true;
-        } else {
-          dp[i][j] = dp[i + 1][j - 1];
-        }
-        if (dp[i][j] && length > maxLength) {
-          start = i;
-          maxLength = length;
+  for (let i = 0; i < s.length; i++) {
+    for (let j = i; j <= s.length; j++) {
+      let subString = s.slice(i, j);
+      if (isPalindrome(subString)) {
+        if (!set.has(subString)) {
+          set.add(subString);
+          if (maxLength < subString.length) {
+            maxLength = subString.length;
+            ans = subString;
+          }
         }
       }
     }
   }
+  return ans;
+}
 
-  return s.substring(start, start + maxLength);
+function isPalindrome(str) {
+  let left = 0,
+    right = str.length - 1;
+  while (left < right) {
+    if (str[left] !== str[right]) return false;
+    left++;
+    right--;
+  }
+  return true;
+
+  // This is also the same result approach but slower as compared to the one above
+  // return str === str.split("").reverse().join("");
 }
 
 const s = "babad";
