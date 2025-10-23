@@ -37,22 +37,6 @@ function twoSum(nums, target) {
   }
 
   return [];
-
-  // const numMap = new Map();
-
-  // for (let i = 0; i < nums.length; i++) {
-  //   numMap.set(nums[i], i);
-  // }
-
-  // for (let k = 0; k < nums.length; k++) {
-  //   const complement = target - nums[k];
-
-  //   if (numMap.has(complement)) {
-  //     return [k, numMap.get(complement)];
-  //   } else {
-  //     return [];
-  //   }
-  // }
 }
 
 const nums = [2, 11, 15, 7];
