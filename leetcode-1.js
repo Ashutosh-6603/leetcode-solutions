@@ -26,17 +26,19 @@ Constraints:
 */
 
 function twoSum(nums, target) {
-      for (let i = 0; i < nums.length; i++) {
-            const complement = target - nums[i];
+    const numMap = new Map();
 
-            if (numMap.has(complement)) {
-                  return [numMap.get(complement), i];
-            } else {
-                  numMap.set(nums[i], i);
-            }
-      }
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
 
-      return [];
+        if (numMap.has(complement)) {
+            return [numMap.get(complement), i];
+        } else {
+            numMap.set(nums[i], i);
+        }
+    }
+
+    return [];
 }
 
 const nums = [2, 11, 15, 7];
