@@ -33,7 +33,7 @@ Constraints:
 -> The tests are generated such that there is exactly one solution.
 */
 
-function solution(numbers, target) {
+function twoSum(numbers, target) {
   let left = 0;
   let right = numbers.length - 1;
 
@@ -51,4 +51,4 @@ function solution(numbers, target) {
 }
 
 let numbers = [2, 3, 4];
-console.log(solution(numbers, 6));
+console.log(twoSum(numbers, 6));
