@@ -18,16 +18,16 @@ Constraints:
 */
 
 function majorityElement(nums) {
-  let n = arr.length;
-  let elem = arr[0],
+  let n = nums.length;
+  let elem = nums[0],
     count = 1;
   for (let i = 1; i < n; i++) {
-    if (arr[i] === elem) {
+    if (nums[i] === elem) {
       count++;
     } else {
       count--;
       if (count === 0) {
-        elem = arr[i];
+        elem = nums[i];
         count = 1;
       }
     }
@@ -35,5 +35,25 @@ function majorityElement(nums) {
   return elem;
 }
 
-const nums = [2, 2, 1, 1, 1, 2, 2, 7, 7, 7, 7, 7, 7, 7, 7];
+const nums = [2, 2, 1, 1, 1, 2, 2];
 console.log(majorityElement(nums));
+
+function solution(nums) {
+  const map = new Map();
+
+  for (const num of nums) {
+    map.set(num, (map.get(num) || 0) + 1);
+  }
+
+  let maxCount = 0;
+  let maxNum = nums[0];
+
+  for (const [num, count] of map) {
+    if (count > maxCount) {
+      maxCount = count;
+      maxNum = num;
+    }
+  }
+
+  return maxNum;
+}
