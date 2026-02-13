@@ -45,4 +45,3 @@ const nums = [2, 11, 15, 7];
 const target = 17;
 
 console.log(twoSum(nums, target));
-console.log("I committed something")
