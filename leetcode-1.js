@@ -44,4 +44,4 @@ function twoSum(nums, target) {
 const nums = [2, 11, 15, 7];
 const target = 17;
 
-console.log(twoSum(nums, target));
+console.log(twoSum(nums, target), "solution");
