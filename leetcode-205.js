@@ -55,4 +55,5 @@ function isIsomorphic(s, t) {
 
 let s = "eggz",
   t = "addx";
+
 console.log(isIsomorphic(s, t));
