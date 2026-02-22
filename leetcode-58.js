@@ -26,9 +26,18 @@ Constraints:
 */
 
 function lengthOfLastWord(s) {
-  const words = s.match(/\b\w+\b/g);
+  let i = s.length - 1;
 
-  return words[words.length - 1].length;
+  while (i >= 0 && s[i] === " ") i--;
+
+  let len = 0;
+
+  while (i >= 0 && s[i] !== " ") {
+    len++;
+    i--;
+  }
+
+  return len;
 }
 
 const s = " Hello World                   beautiful";
