@@ -23,11 +23,9 @@ function longestCommonPrefix(strs) {
 
   for (let i = 0; i < strs[0].length; i++) {
     const char = strs[0][i];
-    console.log(char, "char");
 
     for (let j = 1; j < strs.length; j++) {
       if (i >= strs[j].length || strs[j][i] !== char) {
-        console.log(strs[j][i], "strs[j][i]");
         return strs[0].substring(0, i);
       }
     }
