@@ -46,4 +46,4 @@ function lengthOfLongestSubstring(s) {
 }
 
 const str = "abcabcbb";
-console.log(lengthOfLongestSubstring(str), "result");
+console.log(lengthOfLongestSubstring(str));
