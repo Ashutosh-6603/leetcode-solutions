@@ -17,14 +17,9 @@ Constraints:
 */
 
 function addBinary(a, b) {
-  const aBinary = `0b${a}`;
-  const bBinary = `0b${b}`;
-
-  const sum = BigInt(aBinary) + BigInt(bBinary);
-
-  console.log(BigInt(aBinary), BigInt(bBinary), sum.toString(2));
-
-  return sum.toString(2);
+  a = BigInt(`0b${a}`);
+  b = BigInt(`0b${b}`);
+  return (a + b).toString(2);
 }
 
 const a = "1010";
